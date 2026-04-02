@@ -18,9 +18,9 @@
     
     <style>
         :root {
-            --neon: #00d4ff;
-            --neon-dark: #0099cc;
-            --neon-light: #66e5ff;
+            --neon: #e5ff00;
+            --neon-dark: #b8cc00;
+            --neon-light: #f0ff66;
             --black: #000000;
             --dark: #0a0a0a;
             --darker: #050505;
@@ -55,14 +55,14 @@
         
         @keyframes neonPulse {
             0%, 100% { 
-                text-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
-                             0 0 40px rgba(0, 212, 255, 0.3),
-                             0 0 60px rgba(0, 212, 255, 0.2);
+                text-shadow: 0 0 20px rgba(229, 255, 0, 0.5),
+                             0 0 40px rgba(229, 255, 0, 0.3),
+                             0 0 60px rgba(229, 255, 0, 0.2);
             }
             50% { 
-                text-shadow: 0 0 30px rgba(0, 212, 255, 0.8),
-                             0 0 60px rgba(0, 212, 255, 0.5),
-                             0 0 90px rgba(0, 212, 255, 0.3);
+                text-shadow: 0 0 30px rgba(229, 255, 0, 0.8),
+                             0 0 60px rgba(229, 255, 0, 0.5),
+                             0 0 90px rgba(229, 255, 0, 0.3);
             }
         }
         
@@ -83,7 +83,7 @@
             z-index: 1000;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            border-bottom: 1px solid rgba(229, 255, 0, 0.3);
             animation: slideUp 0.8s ease-out;
         }
         
@@ -97,7 +97,7 @@
         .logo .name { color: var(--light); }
         .logo .number { 
             color: var(--neon); 
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            text-shadow: 0 0 20px rgba(229, 255, 0, 0.5);
         }
         
         nav ul {
@@ -152,8 +152,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(229, 255, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(229, 255, 0, 0.05) 0%, transparent 50%);
             pointer-events: none;
         }
         
@@ -240,7 +240,7 @@
         }
         
         .btn-primary:hover {
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+            box-shadow: 0 0 40px rgba(229, 255, 0, 0.6);
             transform: translateY(-3px);
         }
         
@@ -269,8 +269,8 @@
         .stats-bar {
             background: rgba(0, 0, 0, 0.9);
             padding: 40px 0;
-            border-top: 1px solid rgba(0, 212, 255, 0.3);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            border-top: 1px solid rgba(229, 255, 0, 0.3);
+            border-bottom: 1px solid rgba(229, 255, 0, 0.3);
         }
         
         .stats-container {
@@ -351,7 +351,7 @@
             max-width: 400px;
             border-radius: 20px;
             border: 3px solid var(--neon);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 40px rgba(229, 255, 0, 0.3);
         }
         
         .about-img::after {
@@ -389,7 +389,7 @@
         }
         
         .info-item {
-            background: rgba(0, 212, 255, 0.05);
+            background: rgba(229, 255, 0, 0.05);
             padding: 20px;
             border-radius: 10px;
             border-left: 3px solid var(--neon);
@@ -455,10 +455,10 @@
         }
         
         .timeline-content {
-            background: rgba(0, 212, 255, 0.05);
+            background: rgba(229, 255, 0, 0.05);
             padding: 25px;
             border-radius: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(229, 255, 0, 0.2);
             flex: 1;
             transition: all 0.3s;
         }
@@ -506,7 +506,7 @@
         .gallery-item:hover {
             transform: scale(1.05);
             border-color: var(--neon);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 30px rgba(229, 255, 0, 0.3);
         }
         
         .gallery-item img {
@@ -559,7 +559,7 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(229, 255, 0, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -595,7 +595,7 @@
         .social-links a {
             width: 50px;
             height: 50px;
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(229, 255, 0, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -614,10 +614,10 @@
         }
         
         .contact-form-container {
-            background: rgba(0, 212, 255, 0.05);
+            background: rgba(229, 255, 0, 0.05);
             padding: 50px;
             border-radius: 20px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(229, 255, 0, 0.2);
         }
         
         .form-group {
@@ -639,7 +639,7 @@
             width: 100%;
             padding: 15px 20px;
             background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(0, 212, 255, 0.3);
+            border: 2px solid rgba(229, 255, 0, 0.3);
             border-radius: 10px;
             color: var(--light);
             font-family: 'Rajdhani', sans-serif;
@@ -651,7 +651,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--neon);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 20px rgba(229, 255, 0, 0.2);
         }
         
         .form-group textarea {
@@ -676,7 +676,7 @@
         }
         
         .btn-submit:hover {
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 30px rgba(229, 255, 0, 0.5);
             transform: translateY(-2px);
         }
         
@@ -695,7 +695,7 @@
         }
         
         .form-status.success {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(229, 255, 0, 0.1);
             border: 1px solid var(--neon);
             color: var(--neon);
         }
@@ -710,7 +710,7 @@
         footer {
             padding: 50px;
             background: var(--black);
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 1px solid rgba(229, 255, 0, 0.2);
             text-align: center;
         }
         
@@ -978,7 +978,7 @@
                         <p><strong>Esta disciplina requiere tiempo, dinero y conocimiento.</strong> Para tener una máquina competitiva, necesitas apoyo. No es opcional. Es el siguiente nivel.</p>
                     </div>
                     
-                    <div class="story-section" style="background: rgba(0, 212, 255, 0.05); border-left: 3px solid var(--neon); padding: 25px; margin: 30px 0; border-radius: 0 15px 15px 0;">
+                    <div class="story-section" style="background: rgba(229, 255, 0, 0.05); border-left: 3px solid var(--neon); padding: 25px; margin: 30px 0; border-radius: 0 15px 15px 0;">
                         <h4 style="color: var(--neon); font-family: 'Orbitron', sans-serif; font-size: 1.4rem; margin-bottom: 15px;">Mi Promesa</h4>
                         <p style="font-size: 1.2rem; margin-bottom: 15px;">Si entras ahora, esto es lo que puedes tener claro:</p>
                         
