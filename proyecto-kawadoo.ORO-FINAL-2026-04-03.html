@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECTO KAWADOO | Lander Cortázar #59</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon: #e5ff00;
+            --black: #000000;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+            --gray: #888888;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--black);
+            color: var(--light);
+            line-height: 1.8;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 50px; }
+        
+        /* Header */
+        header {
+            padding: 30px 50px;
+            text-align: center;
+            border-bottom: 1px solid rgba(229, 255, 0, 0.3);
+        }
+        
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover { color: var(--neon); }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 50px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('images/kawadoo-hero.jpg') center/cover;
+            position: relative;
+        }
+        
+        .hero-content { position: relative; z-index: 1; }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 2px solid var(--neon);
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            color: var(--neon);
+            margin-bottom: 30px;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--light);
+            text-shadow: 0 0 40px rgba(229, 255, 0, 0.3);
+        }
+        
+        .hero h1 span {
+            display: block;
+            color: var(--neon);
+            text-shadow: 0 0 60px rgba(229, 255, 0, 0.8);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Story Sections */
+        .story-section {
+            padding: 100px 50px;
+            border-bottom: 1px solid rgba(229, 255, 0, 0.1);
+        }
+        
+        .story-section:nth-child(even) {
+            background: var(--dark);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            color: rgba(229, 255, 0, 0.1);
+            font-weight: 900;
+            display: block;
+            margin-bottom: -30px;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--neon);
+            margin-bottom: 20px;
+        }
+        
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+        
+        .story-content p strong {
+            color: var(--neon);
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: rgba(229, 255, 0, 0.05);
+            border-left: 4px solid var(--neon);
+            padding: 30px 40px;
+            margin: 40px 0;
+            border-radius: 0 15px 15px 0;
+        }
+        
+        .highlight-box p {
+            color: var(--light);
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .gallery-item {
+            background: rgba(229, 255, 0, 0.03);
+            border: 1px solid rgba(229, 255, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon);
+            box-shadow: 0 20px 40px rgba(229, 255, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 20px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 40px;
+            background: rgba(229, 255, 0, 0.05);
+            border: 1px solid rgba(229, 255, 0, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .stat-item:hover {
+            border-color: var(--neon);
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--neon);
+            text-shadow: 0 0 20px rgba(229, 255, 0, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 50px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(229, 255, 0, 0.1), rgba(0,0,0,0.9));
+        }
+        
+        .cta-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--light);
+            margin-bottom: 30px;
+        }
+        
+        .cta-title span {
+            color: var(--neon);
+            text-shadow: 0 0 40px rgba(229, 255, 0, 0.8);
+        }
+        
+        .cta-text {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--neon);
+            color: var(--black);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(229, 255, 0, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(229, 255, 0, 0.6);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            padding: 20px 50px;
+            background: transparent;
+            color: var(--neon);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 50px;
+            border: 2px solid var(--neon);
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--neon);
+            color: var(--black);
+        }
+        
+        /* Partners */
+        .partners {
+            padding: 60px 50px;
+            text-align: center;
+            border-bottom: 1px solid rgba(229, 255, 0, 0.1);
+        }
+        
+        .partners-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        
+        .partners-grid {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .partner-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--light);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .partner-name:hover {
+            color: var(--neon);
+            opacity: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero { padding: 80px 20px; }
+            .story-section { padding: 60px 20px; }
+            .section-title { font-size: 1.8rem; }
+            .cta-title { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-link">← VOLVER A CORTAZAR 59</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">PROYECTO EN DESARROLLO</div>
+            <h1>PROYECTO <span>KAWADOO</span></h1>
+            <p class="hero-subtitle">Donde la leyenda Kawasaki se encuentra con el poder Sea-Doo. Una máquina construida para dominar el agua.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 1: EL ORIGEN -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">EL ORIGEN</h2>
+            </div>
+            <div class="story-content">
+                <p>Hace años, mirando el mercado con ojo crítico, me di cuenta de algo: <strong>el mejor motor del mundo es el Sea-Doo 300</strong>, pero el mejor casco es sin duda el <strong>Kawasaki Ultra</strong>.</p>
+                
+                <p>Entonces pensé: <strong>¿por qué no unir lo mejor de cada uno?</strong></p>
+                
+                <div class="highlight-box">
+                    <p>"Si puedo tomar la potencia brutal de Sea-Doo y la resistencia legendaria de Kawasaki, tendré una moto que no solo compita... ganará."</p>
+                </div>
+                
+                <p>Esa fue la chispa que encendió <strong>PROYECTO KAWADOO</strong>. Una idea simple pero ambiciosa: crear una máquina híbrida que no existía en el mercado. Una moto que fusionara <strong>potencia extrema</strong> con <strong>fiabilidad de competición</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: EL PROBLEMA -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">EL PROBLEMA</h2>
+            </div>
+            <div class="story-content">
+                <p>El casco de Sea-Doo deja mucho que desear en resistencia. Y el motor de Kawasaki, aunque bueno, requiere un mantenimiento constante que te quita horas de entrenamiento.</p>
+                
+                <p>La primera KAWADOO la monté en <strong>2023</strong>, pero no logramos afinarla completamente. Frustración tras frustración. Hasta que...</p>
+                
+                <div class="highlight-box">
+                    <p>"En una carrera crucial, vi el futuro. EASY RIDER, el mejor preparador del mundo, llegó con una igual a la mía. Pero la suya... la suya VOLABA."</p>
+                </div>
+                
+                <p>Hablé con ellos. Me explicaron por qué mi moto no funcionaba. Y ahí tomé la decisión más importante: <strong>dejar que los mejores del mundo terminen lo que empecé</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: EL EQUIPO -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">EL EQUIPO</h2>
+            </div>
+            <div class="story-content">
+                <p>Este proyecto no sería posible sin un equipo brutal detrás. Desde el principio, conté con el apoyo incondicional de dos gigantes:</p>
+                
+                <p><strong>NAUTILUS</strong> — Concesionario Kawasaki de Murcia. Mi familia en este deporte.</p>
+                <p><strong>PACUTOS</strong> — Concesionario Sea-Doo de Murcia. Expertos que comparten mi visión.</p>
+                
+                <p>Y no puedo olvidar a <strong>Andoni Gutiérrez</strong>, campeón del mundo y amigo, cuya moto ya evolucionó por el mismo camino. Gracias a él, este proyecto avanza con rumbo claro.</p>
+                
+                <div class="highlight-box">
+                    <p>"Muchas horas invertidas, sí. Momentos de frustración, también. Pero cada segundo vale la pena cuando sabes que estás construyendo algo único."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: LOS NÚMEROS -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">LA INVERSIÓN</h2>
+            </div>
+            <div class="story-content">
+                <p>KAWADOO no es un proyecto barato. Ni lo pretendía ser. Estamos hablando de <strong>máxima calidad, máxima potencia, máxima fiabilidad</strong>.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">40K</div>
+                        <div class="stat-label">Euros Invertidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">∞</div>
+                        <div class="stat-label">Horas de Trabajo</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Moto Única</div>
+                    </div>
+                </div>
+                
+                <p>Faltan muchas cosas por terminar. Cada pieza lleva tiempo. Cada ajuste lleva dinero. Por eso avanzamos despacio, pero seguros.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: LA EVOLUCIÓN (GALERÍA) -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">LA EVOLUCIÓN</h2>
+            </div>
+            <p style="text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 40px;">Desde el casco vacío hasta la máquina que conquistará el agua</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <video src="images/kawadoo-video1.mp4" style="width: 100%; height: 250px; object-fit: cover;" autoplay muted loop playsinline></video>
+                    <div class="gallery-caption">Fase 1: El casco vacío. Listo para arrancar el proyecto.</div>
+                </div>
+                <div class="gallery-item">
+                    <video src="images/kawadoo-video2.mp4" style="width: 100%; height: 250px; object-fit: cover;" autoplay muted loop playsinline></video>
+                    <div class="gallery-caption">Fase 2: Dejamos el casco en EASY RIDER para su preparación.</div>
+                </div>
+                <div class="gallery-item">
+                    <video src="images/kawadoo-video3.mp4" style="width: 100%; height: 250px; object-fit: cover;" autoplay muted loop playsinline></video>
+                    <div class="gallery-caption">Fase 3: Casco de vuelta en casa. Empezamos con el trabajo duro.</div>
+                </div>
+                <div class="gallery-item">
+                    <video src="images/kawadoo-video4.mp4" style="width: 100%; height: 250px; object-fit: cover;" autoplay muted loop playsinline></video>
+                    <div class="gallery-caption">Fase 4: Después del trabajo en el casco, vamos con el corazón.</div>
+                </div>
+                <div class="gallery-item">
+                    <video src="images/kawadoo-video5.mp4" style="width: 100%; height: 250px; object-fit: cover;" autoplay muted loop playsinline></video>
+                    <div class="gallery-caption">Fase 5: Motor centrado y turbina perfecta. La bestia cobra vida.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: EL SUEÑO -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">EL SUEÑO</h2>
+            </div>
+            <div class="story-content">
+                <p>Cuando KAWADOO esté lista y corra por primera vez... será un sueño hecho realidad.</p>
+                
+                <div class="highlight-box">
+                    <p>"Solo sé que nos va a dar muchas alegrías. Esta moto no solo competirá. Esta moto GANARÁ."</p>
+                </div>
+                
+                <p>El objetivo es claro: <strong>Mundial de Endurance AQUABIKE</strong>. Llevar el nombre de KAWADOO a lo más alto del podio internacional. Mostrar al mundo que cuando juntas lo mejor de dos leyendas, nace algo épico.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners">
+        <div class="container">
+            <p class="partners-title">Equipo KAWADOO</p>
+            <div class="partners-grid">
+                <span class="partner-name">NAUTILUS Kawasaki</span>
+                <span style="color: var(--neon);">✦</span>
+                <span class="partner-name">PACUTOS Sea-Doo</span>
+                <span style="color: var(--neon);">✦</span>
+                <span class="partner-name">EASY RIDER</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">ÚNETE A LA <span>REVOLUCIÓN</span></h2>
+            <p class="cta-text">
+                Este proyecto no es solo mío. Es de todos los que creen en construir algo único. 
+                Si tu empresa se une ahora, no solo gana visibilidad: se convierte en parte de una historia 
+                que se recordará. Juntos llevaremos KAWADOO al Mundial de Endurance AQUABIKE.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/34686087467?text=Hola%20Lander%2C%20vi%20el%20PROYECTO%20KAWADOO%20y%20quiero%20apoyarlo.%20Cu%C3%A9ntame%20c%C3%B3mo%20puedo%20unirme%20al%20equipo." class="btn-primary" target="_blank">Apoya este Proyecto</a>
+                <a href="index.html#contacto" class="btn-secondary">Contactar por Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/34686087467?text=Hola%20Lander%2C%20vi%20el%20PROYECTO%20KAWADOO%20y%20quiero%20saber%20m%C3%A1s." class="whatsapp-float" target="_blank" title="Contáctame por WhatsApp" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; animation: pulse 2s infinite;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.439 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.003c6.551 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <style>
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+        }
+    </style>
+
+</body>
+</html>
